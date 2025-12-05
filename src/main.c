@@ -2,7 +2,7 @@
 
 typedef struct hash_table
 {
-	char 	*key;
+	char	*key;
 	int		value;
 }			hash_table;
 
@@ -30,5 +30,5 @@ int main(int argc, char const *argv[])
 	if (!find)
 		return (1);
 	printf("find->key = %s, find->value = %d\n", find->key, find->value);
-	return 0;
+	return (0);
 }
