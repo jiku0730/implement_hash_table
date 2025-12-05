@@ -16,16 +16,15 @@ Keyをハッシュ関数に通して、配列のインデックスを決定し�
 Hash TableではKeyを数字に変換してIndexとして扱う感じ。
 
 ## 実装内容
-### 線形探索
 HashTableの実装方法はいくつかある。
 まずは、実装すべき内容を列挙する。
 要素の追加と削除。
 要素の探索。
 最も基本的な操作はこの２つ。
 
-実装方法としてもっとも簡単なのは、単純な線形リストを使う方法。
+### 線形探索
+実装方法としてもっとも簡単なのは、単純な配列を使う方法。
 一旦はこれを実装していく。
-
 ```c
 #include "hash_table.h"
 
@@ -67,8 +66,36 @@ int main(int argc, char const *argv[])
 $ ./implement_hash_table
 find->key = orange, find->value = 10
 ```
-
+今の状態だと、要素の追加と削除ができない。
+また、探索も線形探索なので計算量がO(n)となってしまう。
+次に、二分探索を実装していく。
 ### 二分探索
+二分探索を実装するためには、まず配列をソートしておく必要がある。
+とりあえずここの部分は省略する。
+二分探索に限って実装する。
+```c
+hash_table *binary_search(hash_table *ht, size_t size, const char *key)
+{
+	if (size + size < size)
+		return (NULL);
+
+	size_t	low = 0;
+	size_t	high = size;
+	while (low < high)
+	{
+		size_t	mid = (low + high) / 2;
+		int		diff = strcmp(ht[mid].key, key);
+		if (diff == 0)
+			return (&ht[mid]);
+		else if (diff > 0)
+			high = mid;
+		else if (diff < 0)
+			low = mid + 1;
+	}
+	return (NULL);
+}
+```
+これにより、探索の計算量がO(log n)となる。
 
 ## 参考にしたサイト
 - [Qiita: C言語 ハッシュテーブル](https://qiita.com/keitean/items/98d8335756d27fc83998)
