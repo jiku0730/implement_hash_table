@@ -4,17 +4,19 @@
 C言語でハッシュテーブルを再実装したものです。
 
 ## HASHTABLEの自分のイメージ
-Hash Tableは、連結リストと配列の長所を組み合わせたデータ構造。
-連結リストは、要素の追加と削除の計算量がO(1)である一方、探索の計算量がO(n)。
-配列は、要素の探索がO(1)である一方、追加と削除の計算量がO(n)。
+Hash Tableは、連結リストと配列の長所を組み合わせたデータ構造。<br>
+連結リストは、要素の追加と削除の計算量がO(1)である一方、探索の計算量がO(n)。<br>
+配列は、要素の探索がO(1)である一方、追加と削除の計算量がO(n)。<br>
 それぞれ長所と短所があり、これのいいとこどりをしたのがHash Table。
 
-HashTableは、KeyとValueのペアでデータを保存する。
-Keyをハッシュ関数に通して、配列のインデックスを決定し、そのインデックスにValueを保存する。
+Hash Tableは、KeyとValueのペアでデータを保存する。<br>
+Keyをハッシュ関数に通して、配列のインデックスを決定し、
+そのインデックスにValueを保存する。<br>
 イメージとしては、配列のIndexは本来数字のみを扱うが、
-HashTableではKeyを数字に変換してIndexとして扱う感じ。
+Hash TableではKeyを数字に変換してIndexとして扱う感じ。
 
 ## 実装内容
+### 線形探索
 HashTableの実装方法はいくつかある。
 まずは、実装すべき内容を列挙する。
 要素の追加と削除。
@@ -66,5 +68,9 @@ $ ./implement_hash_table
 find->key = orange, find->value = 10
 ```
 
+### 二分探索
+
 ## 参考にしたサイト
 - [Qiita: C言語 ハッシュテーブル](https://qiita.com/keitean/items/98d8335756d27fc83998)
+- [Wikipedia: ハッシュテーブル](https://ja.wikipedia.org/wiki/%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB)
+- [How to implement a hash table (in C)](https://benhoyt.com/writings/hash-table-in-c/)
