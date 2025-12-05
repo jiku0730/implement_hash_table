@@ -61,5 +61,10 @@ int main(int argc, char const *argv[])
 }
 ```
 
+```
+$ ./implement_hash_table
+find->key = orange, find->value = 10
+```
+
 ## 参考にしたサイト
 - [Qiita: C言語 ハッシュテーブル](https://qiita.com/keitean/items/98d8335756d27fc83998)
