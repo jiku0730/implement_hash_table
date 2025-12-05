@@ -1,3 +1,5 @@
 implement_hash_table
 a.out
 *.o
+.vscode/
+hash_table.a
